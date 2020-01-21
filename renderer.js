@@ -4,3 +4,12 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
+
+var electron = require('electron')
+var ipc = electron.ipcRenderer
+
+var startProc = document.getElementById('start-another-process');
+console.log(startProc)
+startProc.addEventListener('click', function () {
+    ipc.send('start-proc');
+});
